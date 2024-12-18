@@ -7,12 +7,14 @@ with open('data/NeukurveInvertiert.dat', 'r') as file:
     data = file.read().replace(',', '.')
 
 data = np.genfromtxt(data.splitlines())
-# Ersten 32 in gruen
+# Ersten 100 in gruen
+
+data[:,2] = data[:,2] - ((np.max(data[:, 2]) + np.min(data[:,2])) * 0.5)
+
 Hn = -1 * data[:100, 1] * 1078.14
 Bn = -1 * data[:100, 2] * 0.29389
 H = -1 * data[100:, 1] * 1078.14
 B = -1 * data[100:, 2] * 0.29389
-#B = B - ((np.max(B) + np.min(B)) * 0.5)
 
 plt.style.use('seaborn-v0_8-paper')
 plt.figure(figsize=(8, 6))
@@ -22,9 +24,9 @@ plt.plot(Hn, Bn, color='green', linewidth=2)
 plt.grid(True, linestyle='--', alpha=0.7)
 plt.tight_layout()
 
-plt.xlabel(r'$H \, [\mathrm{\frac{A}{m}}]} $', fontsize=20)
+plt.xlabel(r'$H \, [\mathrm{\frac{A}{m}}]} $', fontsize=30)
 plt.ylabel(r'$B \, \left[T\right]$',
-           fontsize=20,
+           fontsize=30,
            rotation=0,
            labelpad=25,
            loc='center')

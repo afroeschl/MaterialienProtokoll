@@ -20,15 +20,12 @@ plt.figure(figsize=(8, 6))
 
 plt.plot(H, B, color='blue', linewidth=2)
 
-plt.xlabel(r'$H \, \left[\frac{\mathrm{A}}{\mathrm{m}}\right]$',
-           fontsize=20,
+plt.xlabel(r'$H \, \left[ A / m\right]$', fontsize=30, loc='center')
+plt.ylabel(r'$\mu_{\mathrm{r diff}} \, \left[ Vs / Am \right]$',
+           fontsize=30,
+           rotation=0,
+           labelpad=75,
            loc='center')
-plt.ylabel(
-    r'$\mu_{\mathrm{r}} \, \left[\frac{\mathrm{Vs}}{\mathrm{Am}}\right]$',
-    fontsize=20,
-    rotation=0,
-    labelpad=30,
-    loc='center')
 plt.ylim(bottom=0)
 plt.xlim(np.min(H), np.max(H))
 plt.grid(True, linestyle='--', alpha=0.7)

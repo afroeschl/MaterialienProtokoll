@@ -13,16 +13,16 @@ data = np.genfromtxt(data.splitlines())
 # Extract the 2nd and 3rd columns (H and B respectively)
 H = data[:, 1] * 1087.14
 B = data[:, 2] * 0.2938
-B = B - ((np.max(B) + np.min(B)) * 0.5) - 0.04
+B = B - ((np.max(B) + np.min(B)) * 0.5)
 
 plt.style.use('seaborn-v0_8-paper')
 plt.figure(figsize=(8, 6))
 
 plt.plot(H, B, color='blue', linewidth=0.6)
 
-plt.xlabel(r'$H \, [\mathrm{\frac{A}{m}}]} $', fontsize=20)
+plt.xlabel(r'$H \, [\mathrm{\frac{A}{m}}]} $', fontsize=30)
 plt.ylabel(r'$B \, \left[T\right]$',
-           fontsize=20,
+           fontsize=30,
            rotation=0,
            labelpad=25,
            loc='center')
